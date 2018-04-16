@@ -1,5 +1,5 @@
 # Bamazon
-Amazon-like storefront node application
+Amazon-like storefront node application.
 
 ## Purpose
 
@@ -7,19 +7,35 @@ Bamazon is a commandline app that takes orders from customers while depleting st
 
 ## Getting Started
 
-To use this app you will need your own set of API keys for the Twitter and Spotify APIs.
+Before you can use this app you will need to setup a MySQL database. Once the database has been setup, you will need to store the host, port, user, password, and database details in a .env file.
 
-$ node liri.js '[enter command here]' '[enter query here]'
+Install the dependency npm packages: $npm install
 
-Example: $ node liri.js movie-this "Black Panther"
+To run the app, use one of the three js files:
+* $ node bamazonCustomer.js
+* $ node bamazonManager.js
+* $ node bamazonSupervisor.js
 
 ## Views & Commands
 
-* Customer View
-* Manager View
-* Supervisor View: The supervisor view allows you to track product sales across the store's departments and provides a summary of the highest-grossing departments in the store.
-  * **View Products Sales by Department** 
-  * **Create New Department**
+* *Customer View* - The supervisor view presents the user with the following options:
+  * **View Products for Sale**: Displays the ID, Name and Price of the products that are for sale.
+  * **Purchase Item**: Allows a customer to purchase a product by entering the product ID and quantity.
+  * **Help**: Allows a customer to view their placed orders, request refunds, payment methods & gift cards, and account settings.
+  * **Exit**: Exits the program.
+
+* *Manager View* - The manager view presents the user with the following options:
+  * **View Products for Sale**: Displays the ID, Name, Price and inventory of the products that are for sale.
+  * **View Low Inventory**: Allows the manager to view products that have an inventory count lower than 5.
+  * **Add to Inventory**: Allows a manager to increase the stock of a product.
+  * **Add New Product**: Allows a manager to add a new product to the store.
+  * **Edit Product**: Allows a manager to change the name of a product, change the price of a product or remove a product from the store.
+  * **Exit**: Exits the program.
+
+* *Supervisor View* - The supervisor view presents the user with the following options:
+  * **View Products Sales by Department**: Allows a supervisor to track product sales across the store's departments and provides a summary of the highest-grossing departments in the store.
+  * **Create New Department**: Allows a supervisor to create a new department.
+  * **Exit**: Exits the program.
 
 ## Demo
 
