@@ -40,7 +40,7 @@ To run the app, use one of the three js files:
 ## Demo
 
 Click this link to view a recorded demo: 
-[Demo](https://drive.google.com/file/d/1eZm-MYI1M3Yu2Huv123ReY6wuY3Skgua/view)
+[Demo](https://drive.google.com/file/d/1AC4EjmXAQYw1Kcmmw3vqoyNTdau_G4Ld/view)
 
 ## Node Packages Used
 
