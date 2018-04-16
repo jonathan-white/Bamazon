@@ -1,0 +1,18 @@
+{
+  "name": "03-bamazon",
+  "version": "1.0.0",
+  "description": "Bamazon is a retail app similar to amazon",
+  "main": "bamazonCustomer.js",
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "dotenv": "^5.0.1",
+    "inquirer": "^5.2.0",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jon White",
+  "license": "MIT"
+}
