@@ -4,11 +4,11 @@ const inquirer = require("inquirer");
 const bamazon = require("./bamazon");
 const Table = require("cli-table");
 
-var connection = mysql.createConnection(bamazon.db);
+const connection = mysql.createConnection(bamazon.db);
 
-var orders = [];
+let orders = [];
 
-function displayCustMenu(){
+const displayCustMenu = () => {
 	// Start CLI
 	console.log('\n-----CUSTOMER MENU-----');
 	inquirer.prompt([
@@ -35,20 +35,20 @@ function displayCustMenu(){
 	});
 };
 
-function viewProductsForSale(){
+const viewProductsForSale = () => {
 	// 2. Display all items that are for sale
 	console.log('\n-------PRODUCTS FOR SALE-------\n');
 	connection.query('SELECT id, product_name, price FROM products', function(err, results){
 		if (err) throw err;
 
 		// Setup table headers
-		var table = new Table({
+		let table = new Table({
 			head: ['ID','Product','Price'],
 			style: {head: ['inverse']}
 		});
 
 		// Add results data to table
-		for (var i = 0; i < results.length; i++) {
+		for (let i = 0; i < results.length; i++) {
 			table.push([
 				bamazon.pad(results[i].id,2), 
 				results[i].product_name, 
@@ -64,7 +64,7 @@ function viewProductsForSale(){
 	});
 };
 
-function purchaseItem(){
+const purchaseItem = () => {
 	console.log('\n-------PURCHASE PRODUCT-------\n');
 	inquirer.prompt([
 		{
@@ -97,10 +97,10 @@ function purchaseItem(){
 					console.log('Insufficient quantity!');
 					displayCustMenu();
 				}else {
-					var saleTotal = parseFloat(product.qty * results[0].price).toFixed(2);
+					const saleTotal = parseFloat(product.qty * results[0].price).toFixed(2);
 					orders.push({product: results[0].product_name, qty: product.qty, cost: saleTotal});
-					console.log('Thank you for purchasing a(n) ' + results[0].product_name);
-					console.log('The total cost of your purchase is $' + saleTotal);
+					console.log(`Thank you for purchasing a(n) ${results[0].product_name}`);
+					console.log(`The total cost of your purchase is $${saleTotal}`);
 					updateProducts("buyProduct",
 						parseInt(product.id),parseInt(product.qty),saleTotal);
 				}
@@ -112,7 +112,7 @@ function purchaseItem(){
 	});
 };
 
-function updateProducts(action, item, amount, sales){
+const updateProducts = (action, item, amount, sales) => {
 	if(action === "buyProduct"){
 		connection.query(
 			'UPDATE products SET stock_quantity = stock_quantity - ?, '+
@@ -132,7 +132,7 @@ function updateProducts(action, item, amount, sales){
 	}
 };
 
-function help(){
+const help = () => {
 	console.log('\n-------HELP-------\n');
 	console.log('Hello. What can we help you with?');
 	inquirer.prompt([
@@ -146,13 +146,13 @@ function help(){
 		if(answer.choice === "Your Orders"){
 			console.log('You have the following pending orders...');
 			// Setup table headers
-			var table = new Table({
+			let table = new Table({
 				head: ['Product','Qty','Cost'],
 				style: {head: ['green']}
 			});
 
 			// Add orders data to table
-			for (var i = 0; i < orders.length; i++) {
+			for (let i = 0; i < orders.length; i++) {
 				table.push([
 					orders[i].product, 
 					orders[i].qty, 
@@ -174,7 +174,7 @@ function help(){
 };
 
 // Start the app
-connection.connect(function(err){
+connection.connect((err) => {
 	if(err) throw err;
 
 	console.log('\nWelcome to Bamazon!');
