@@ -47,7 +47,7 @@ Click this link to view a recorded demo:
 * https://www.npmjs.com/package/dotenv
 * https://www.npmjs.com/package/mysql
 * https://www.npmjs.com/package/inquirer
-* https://www.npmjs.com/package/cli-table
+* https://www.npmjs.com/package/cli-table3
 
 ## Author
 

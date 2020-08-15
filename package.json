@@ -4,10 +4,10 @@
   "description": "Bamazon is a retail app similar to amazon",
   "main": "bamazonCustomer.js",
   "dependencies": {
-    "cli-table": "^0.3.1",
-    "dotenv": "^5.0.1",
-    "inquirer": "^5.2.0",
-    "mysql": "^2.15.0"
+    "cli-table3": "^0.6.0",
+    "dotenv": "^8.2.0",
+    "inquirer": "^7.3.3",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {},
   "scripts": {

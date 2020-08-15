@@ -2,7 +2,7 @@ require("dotenv").config();
 const mysql = require("mysql");
 const inquirer = require("inquirer");
 const bamazon = require("./bamazon");
-const Table = require("cli-table");
+const Table = require("cli-table3");
 
 var connection = mysql.createConnection(bamazon.db);
 
